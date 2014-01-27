@@ -10,28 +10,34 @@ and open the template in the editor.
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
     
-    <xs:element name="ArmyList" type="xs:string"/>      
-    <xs:element name="Faction" type="xs:string"/>
-    <xs:element name="Themeforce" type="xs:string"/>
-    <xs:element name="Tier" type="xs:string"/>
-    <xs:element name="Caster" type="ModelUnit"/>
+    <xs:element name="ArmyList" type="xs:string"/> 
+        <xs:complexType name="ArmyInfo">
+            <xs:sequence>    
+                <xs:element name="Faction" type="xs:string"/>
+                <xs:element name="Themeforce" type="xs:string"/>
+                <xs:element name="Tier" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType> 
+    <!--<xs:element name="Caster" type="ModelUnit"/>
     <xs:element name="models">
         <xs:complexType>
         </xs:complexType>
-    </xs:element>
+    </xs:element>-->
     
-    <xs:complexType name="ModelUnit">
+    <!--<xs:complexType name="ModelUnit">
         <xs:sequence>
             <xs:element name="Name" type="xs:string"/>
             <xs:element name="PointCost" type="xs:string"/>
-            <xs:element name="ModelType" type="ModelType"/>
+            <<xs:element name="ModelType" type="ModelType"/>
             <xs:element name="UnitAttachment" type="UnitAttachment"/>
         </xs:sequence>
     </xs:complexType>
+    -->
     
-    <xs:complexType name="UnitAttachment"/>
+    <!--<xs:complexType name="UnitAttachment"/>
     <xs:sequence>
-        <xs:element name="Name"
-    </xs:sequence>
+        <xs:element name="Name" type="xs:string"/>
+        <xs:element name="Unit" type="ModelUnit"/>
+    </xs:sequence>-->
     
 </xs:schema>
