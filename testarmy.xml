@@ -6,9 +6,29 @@ and open the template in the editor.
 -->
 
 
-<ArmyList
+<armylist
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='army.xsd'>
-    <Faction>Circle Orboros</Faction>
-    <Themeforce>Rock of Orboros</Themeforce>
-</ArmyList>
+    
+        <faction>Circle Orboros</faction>
+        <description>Army I brought last week</description>
+        <player>Geekly</player>
+        <army>
+            <themeforce>Rock of Orboros</themeforce>
+            <tier>4</tier>
+            <caster>
+                <name>Baldur</name>
+                <points>6</points>
+                <focusfury>6</focusfury>
+            </caster>
+            <solo>
+                <name>Warpwolf Stalker</name>
+                <pointcost>10</pointcost>
+            </solo>
+            <unit>
+                <name>Wold Shrimp</name>
+                <pointcost>5</pointcost>
+                <minmax>max</minmax>  
+            </unit>
+        </army>
+</armylist>
