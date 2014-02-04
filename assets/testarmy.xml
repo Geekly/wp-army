@@ -21,14 +21,16 @@ and open the template in the editor.
                 <points>6</points>
                 <focusfury>6</focusfury>
             </caster>
-            <solo>
-                <name>Warpwolf Stalker</name>
-                <pointcost>10</pointcost>
-            </solo>
-            <unit>
-                <name>Wold Shrimp</name>
-                <pointcost>5</pointcost>
-                <minmax>max</minmax>  
-            </unit>
+            <models>
+                <solo>    
+                    <name>Warpwolf Stalker</name>
+                    <pointcost>10</pointcost>
+                </solo>
+                <unit>
+                    <name>Wold Shrimp</name>
+                    <pointcost>5</pointcost>
+                    <minmax>max</minmax>  
+                </unit>
+            </models>
         </army>
 </armylist>
