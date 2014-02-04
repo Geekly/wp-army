@@ -18,10 +18,10 @@
  *
  * @TODO: Rename this class to a proper name for your plugin.
  *
- * @package Wp-Army_Admin
+ * @package Wp-Army-Admin
  * @author  Your Name <email@example.com>
  */
-class Wp-Army_Admin {
+class Wp_Army_Admin {
 
 	/**
 	 * Instance of this class.

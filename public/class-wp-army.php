@@ -22,7 +22,7 @@
  * @author  Keith Hooks <khooks@gmail.com>
  */
 
-class Wp-Army {
+class Wp_Army {
 
 
 
