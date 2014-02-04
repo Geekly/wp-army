@@ -12,8 +12,8 @@
  * @copyright 2014 Keith Hooks
  *
  * @wordpress-plugin
- * Plugin Name:       wp-army
- * Plugin URI:        @TODO
+ * Plugin Name:       WordPress Army List
+ * Plugin URI:        http://geeklythings.net
  * Description:       Add army lists to your WordPress blog using shortcodes
  * Version:           0.0.1
  * Author:            Keith Hooks
