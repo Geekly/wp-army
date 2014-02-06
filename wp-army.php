@@ -40,7 +40,7 @@ if ( ! defined( 'WPINC' ) ) {
  * - replace `Wp-Army.php` with the name of the plugin's class file
  *
  */
-require_once( plugin_dir_path( __FILE__ ) . 'public/class-wp-army.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
@@ -51,8 +51,8 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/class-wp-army.php' );
  * - replace Plugin_Name with the name of the class defined in
  *   `Wp-Army.php`
  */
-register_activation_hook( __FILE__, array( 'wp-army', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'wp-army', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'Wp_Army', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'Wp_Army', 'deactivate' ) );
 
 /*
  * @TODO:
@@ -60,7 +60,7 @@ register_deactivation_hook( __FILE__, array( 'wp-army', 'deactivate' ) );
  * - replace Plugin_Name with the name of the class defined in
  *   `class-plugin-name.php`
  */
-add_action( 'plugins_loaded', array( 'wp-army', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'Wp_Army', 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
  * Dashboard and Administrative Functionality
