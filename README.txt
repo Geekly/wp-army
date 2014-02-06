@@ -10,13 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This is a WordPress plugin for adding Warmachine/Hordes Army Lists to your blog.  Armies are entered in an XML format, enclosed in a shortcode, and then rendered nicely on the blog.  
+This is a WordPress plugin for adding Warmachine/Hordes Army Lists to your blog.  Armies are entered in an XML format, enclosed in a shortcode, and then rendered nicely on the blog.  The armies are added to a new table in the wp database and can be referenced by id only using shortcodes.
 
 In addition, we've developed an XML schema for describing the army lists.
 
 It's located here:  www.geeklythings.net/army.xsd
-
-In the future, we'd like to use the standard for writing the lists to 
 
 == Installation ==
 
@@ -32,6 +30,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Changelog ==
 
 = 0.1 =
+
 Initial release
 
 == Arbitrary section ==
