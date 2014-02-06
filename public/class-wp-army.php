@@ -81,18 +81,9 @@ class Wp_Army {
 		/* Define custom functionality.
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		//add_action( '@TODO', array( $this, 'action_method_name' ) );
-		//add_filter( '@TODO', array( $this, 'filter_method_name' ) );
+		add_action( '@TODO', array( $this, 'action_method_name' ) );
+		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
-		// the shortcode that manages display of the army list
-		add_shortcode( 'armylist', 'armylist_func' );  
-
-	}
-
-	private function armylist_func( $atts, $content, $tag ){
-
-	    $content_string = parse_armylist( $content );
-	    return $content_string;
 	}
 
 	/**
@@ -317,16 +308,15 @@ class Wp_Army {
 		// @TODO: Define your filter hook callback here
 	}
 
-
-	
-
 }
 
-
-
-
-
 /**
+	function armylist_func( $atts, $content, $tag ){
+
+	    $content_string = parse_armylist( $content );
+	    return $content_string;
+	}
+	add_shortcode( 'armylist', 'armylist_func' );
 
 	function parse_armylist( $content )
 	{
@@ -339,4 +329,5 @@ class Wp_Army {
 	        
 	        
 	    }
-	}**/
+	}
+*/

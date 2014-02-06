@@ -41,6 +41,8 @@ if ( ! defined( 'WPINC' ) ) {
  *
  */
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army-list.php' );
+
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
