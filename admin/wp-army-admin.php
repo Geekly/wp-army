@@ -66,7 +66,7 @@ class Wp_Army_Admin {
 		 * - Rename "Plugin_Name" to the name of your initial plugin class
 		 *
 		 */
-		$plugin = Wp-Army::get_instance();
+		$plugin = Wp_Army::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.

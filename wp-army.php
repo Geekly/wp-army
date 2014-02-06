@@ -22,7 +22,7 @@
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/Geekly/wp-army.git
+ * GitHub Plugin URI: https://github.com/Geekly/wp-army
  */
 
 // If this file is called directly, abort.
@@ -85,6 +85,6 @@ add_action( 'plugins_loaded', array( 'Wp_Army', 'get_instance' ) );
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/wp-army-admin.php' );
-	add_action( 'plugins_loaded', array( 'wp-army-admin', 'get_instance' ) );
+	add_action( 'plugins_loaded', array( 'Wp_Army_Admin', 'get_instance' ) );
 
 }
