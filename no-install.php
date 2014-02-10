@@ -25,13 +25,15 @@
 	{
 		//echo("File found");
 		$xml = simplexml_load_file('assets/testarmy.xml');
-		echo(var_dump($xml));
+		//echo(var_dump($xml));
 	}
 	else
 	{
 		echo($path . " file not found!");
 	}
 
+	$validate_schema = (dirname(__FILE__) . '/assets/army.xsd');
+	validate_xml($xml->__toString(), $validate_schema);
 
 	$army_list = Wp_Army_List::create_army_list_from_xml_obj($xml);
 	$army_list->render_army_list();

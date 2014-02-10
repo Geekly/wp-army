@@ -21,3 +21,28 @@
 
 	    return $arr;
 	}
+
+
+	function validate_xml($xml_string, $validate_schema)
+	{
+
+	    $xml = new XMLReader();
+	    $xml->xml($xml_string);
+	    echo("Setting schema");
+	    $xml->setSchema($validate_schema);
+	    echo("Validating against " . $validate_schema);
+	    $xml->setParserProperty(XMLReader::VALIDATE, true);
+	    if ($xml->isValid())
+	    {	
+	    	echo( "<p>");
+	    	echo("XML is valid");
+	    	echo("</p>");
+	    	return true;
+	    }
+	    else
+	    {
+	    	echo( $xml->xml );
+	    	return false;
+
+	    }
+	}

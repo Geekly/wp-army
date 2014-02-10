@@ -1,89 +1,78 @@
-<?xml version="1.0"?>
-
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-<xs:schema version="1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           elementFormDefault="qualified">    
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified">
     <xs:element name="armylist">
         <xs:complexType>
-            <xs:all> 
-                <xs:element name="faction" type="xs:string"/>
-                <xs:element name="description" type="xs:string"/>
-                <xs:element name="player" type="xs:string"/>        
+            <xs:all>
                 <xs:element name="army">
                     <xs:complexType>
-                        <xs:all>    
-                            <xs:element name="themeforce" type="xs:string"/>
-                            <xs:element name="tier" type="xs:string"/>
-                            <xs:element name="caster">
-                                <xs:complexType>
-                                    <xs:all>
-                                        <xs:element name="name" type="xs:string"/>
-                                        <xs:element name="points" type="xs:integer"/>
-                                        <xs:element name="focusfury" type="xs:integer"/>                       
-                                    </xs:all>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="models">
+                        <xs:choice>
+                            <xs:element name="caster" type="Caster">
                                 <xs:complexType>
                                     <xs:choice minOccurs="0" maxOccurs="unbounded">
-                                        <xs:element name="caster" nillable="false">
+                                        <xs:element name="battlegroup">
                                             <xs:complexType>
-                                                <xs:all>
-                                                    <xs:element name="name" type="xs:string"/>
-                                                    <xs:element name="points" type="xs:integer"/>
-                                                    <xs:element name="focusfury" type="xs:integer"/>                       
-                                                </xs:all>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="unit" nillable="true">
-                                            <xs:complexType>
-                                                <xs:all>
-                                                    <xs:element name="name" type="xs:string"/>
-                                                    <xs:element name="pointcost" type="xs:integer"/>
-                                                    <xs:element name="minmax" type="xs:string"/>
-                                                </xs:all>
-                                            </xs:complexType>
-                                        </xs:element>                               
-                                        <xs:element name="solo" maxOccurs="unbounded" nillable="true">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="name" type="xs:string"/>
-                                                    <xs:element name="pointcost" type="xs:integer"/>
-                                                </xs:sequence>
+                                                <xs:choice minOccurs="1" maxOccurs="unbounded">
+                                                    <xs:element name="warbeast" type="Warbeast"/>
+                                                    <xs:element name="warjack" type="Warjack"/>
+                                                </xs:choice>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:choice>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:all>
+                                </xs:complexType>   
+                            </xs:element>                      
+                        </xs:choice>
                     </xs:complexType>
-                </xs:element>    
+                </xs:element>                    
+                <xs:element name="themeforce" type="xs:string"/>
+                <xs:element name="tier" type="xs:string"/>
+                <xs:element name="models">
+                    <xs:complexType>
+                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                            <xs:element name="unit" maxOccurs="unbounded" nillable="true" type="Unit"/>
+                            <xs:element name="solo" maxOccurs="unbounded" nillable="true" type="ModelUnit"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
             </xs:all>
+            <xs:attribute name="faction" type="xs:string"/>
+            <xs:attribute name="description" type="xs:string"/>
+            <xs:attribute name="player" type="xs:string"/>
         </xs:complexType>
     </xs:element>
-    <!--<xs:element name="Caster" type="ModelUnit"/>
-    <xs:element name="models">
-        <xs:complexType>
-        </xs:complexType>
-    </xs:element>-->
-    
-    <!--<xs:complexType name="ModelUnit">
-        <xs:sequence>
-            <xs:element name="Name" type="xs:string"/>
-            <xs:element name="PointCost" type="xs:string"/>
-            <<xs:element name="ModelType" type="ModelType"/>
-            <xs:element name="UnitAttachment" type="UnitAttachment"/>
-        </xs:sequence>
+
+    <xs:attributeGroup name="ModelUnitAttr">
+        <xs:attribute name="Name" type="xs:string"/>
+        <xs:attribute name="PointCost" type="xs:integer"/>
+    </xs:attributeGroup>
+
+    <xs:complexType name="ModelUnit">
+        <xs:attributeGroup ref="ModelUnitAttr"/>
     </xs:complexType>
-    -->
-    
-    <!--<xs:complexType name="UnitAttachment"/>
+
+    <xs:complexType name="Caster" type="ModelUnit">
+        <xs:attribute name="focusfury" type="xs:integer"/>
+    </xs:complexType>
+
+  <xs:complexType name="Warcaster" type="Caster"/>    
+  <xs:complexType name="Warlock" type="Caster"/>
+
+  <xs:complexType name="Jackbeast" type="ModelUnit"/>
+
+  <xs:complexType name="Warbeast" type="Jackbeast"/>
+  <xs:complexType name="Warjack" type="Jackbeast"/>
+
+  <xs:complexType name="Solo" type="ModelUnit"/>
+  <xs:complexType name="UnitAttachment" type="ModelUnit"/>
+  <xs:complexType name="WeaponAttachment" type="ModelUnit"/>
+  <xs:complexType name="Unit" type="ModelUnit">
+    <xs:all>
+      <xs:element name="MaxSize" default="true" type="xs:boolean"/>
+      <xs:element name="Attachment" type="xs:UnitAttachment" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+
+  <!--<xs:complexType name="UnitAttachment"/>
     <xs:sequence>
         <xs:element name="Name" type="xs:string"/>
         <xs:element name="Unit" type="ModelUnit"/>
