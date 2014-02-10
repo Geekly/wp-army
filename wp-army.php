@@ -42,6 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
  */
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army-list.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'includes/xml-utils.php');
 
 
 /*
