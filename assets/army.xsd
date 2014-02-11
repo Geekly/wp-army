@@ -11,7 +11,7 @@
                 <xs:element name="Army">
                     <xs:complexType>
                         <xs:choice minOccurs="1" maxOccurs="unbounded">
-                            <xs:element name="Caster" type="CasterType"/>
+                            <xs:element name="Caster" type="CasterType" minOccurs="1"/>
                             <xs:element name="Models" type="ModelList" maxOccurs="1"/>   
                         </xs:choice>
                     </xs:complexType>
