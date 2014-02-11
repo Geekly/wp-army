@@ -1,40 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="qualified">
-    <xs:element name="armylist">
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="Armylist">
         <xs:complexType>
-            <xs:all>
-                <xs:element name="army">
+            <xs:sequence>
+                <xs:element name="Themeforce" minOccurs="0">
                     <xs:complexType>
-                        <xs:choice>
-                            <xs:element name="caster" type="Caster">
-                                <xs:complexType>
-                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
-                                        <xs:element name="battlegroup">
-                                            <xs:complexType>
-                                                <xs:choice minOccurs="1" maxOccurs="unbounded">
-                                                    <xs:element name="warbeast" type="Warbeast"/>
-                                                    <xs:element name="warjack" type="Warjack"/>
-                                                </xs:choice>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:choice>
-                                </xs:complexType>   
-                            </xs:element>                      
+                        <xs:attribute name="tier" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Army">
+                    <xs:complexType>
+                        <xs:choice minOccurs="1" maxOccurs="unbounded">
+                            <xs:element name="Caster" type="CasterType"/>
+                            <xs:element name="Models" type="ModelList" maxOccurs="1"/>   
                         </xs:choice>
                     </xs:complexType>
                 </xs:element>                    
-                <xs:element name="themeforce" type="xs:string"/>
-                <xs:element name="tier" type="xs:string"/>
-                <xs:element name="models">
-                    <xs:complexType>
-                        <xs:choice minOccurs="0" maxOccurs="unbounded">
-                            <xs:element name="unit" maxOccurs="unbounded" nillable="true" type="Unit"/>
-                            <xs:element name="solo" maxOccurs="unbounded" nillable="true" type="ModelUnit"/>
-                        </xs:choice>
-                    </xs:complexType>
-                </xs:element>
-            </xs:all>
+            </xs:sequence>
             <xs:attribute name="faction" type="xs:string"/>
             <xs:attribute name="description" type="xs:string"/>
             <xs:attribute name="player" type="xs:string"/>
@@ -50,11 +32,40 @@
         <xs:attributeGroup ref="ModelUnitAttr"/>
     </xs:complexType>
 
-    <xs:complexType name="Caster" type="ModelUnit">
-        <xs:attribute name="focusfury" type="xs:integer"/>
-    </xs:complexType>
+<xs:complexType name="CasterType">
+    <xs:complexContent>
+        <xs:extension base="ModelUnit">
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="battlegroup" type="ModelList"/>
+            </xs:sequence> 
+            <xs:attribute name="focusfury" type="xs:integer"/>
+        </xs:extension>
+    </xs:complexContent>
+ </xs:complexType>
+ 
+  <xs:complexType name="UnitType">
+    <xs:complexContent>
+        <xs:extension base="ModelUnit">
+            <xs:attribute name="MinMax" default="Max" type="MinMaxType"/>
+        </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xs:complexType name="Warcaster" type="Caster"/>    
+<xs:complexType name="ModelList">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="Unit" type="UnitType"/>
+        <xs:element name="Solo" type="ModelUnit"/>
+    </xs:choice>
+</xs:complexType>
+
+<xs:simpleType name="MinMaxType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="Min"/>
+        <xs:enumeration value="Max"/>
+    </xs:restriction>
+</xs:simpleType>
+
+ <!--<xs:complexType name="Warcaster" type="Caster"/>    
   <xs:complexType name="Warlock" type="Caster"/>
 
   <xs:complexType name="Jackbeast" type="ModelUnit"/>
@@ -64,13 +75,7 @@
 
   <xs:complexType name="Solo" type="ModelUnit"/>
   <xs:complexType name="UnitAttachment" type="ModelUnit"/>
-  <xs:complexType name="WeaponAttachment" type="ModelUnit"/>
-  <xs:complexType name="Unit" type="ModelUnit">
-    <xs:all>
-      <xs:element name="MaxSize" default="true" type="xs:boolean"/>
-      <xs:element name="Attachment" type="xs:UnitAttachment" minOccurs="0"/>
-    </xs:all>
-  </xs:complexType>
+  <xs:complexType name="WeaponAttachment" type="ModelUnit"/>-->
 
   <!--<xs:complexType name="UnitAttachment"/>
     <xs:sequence>

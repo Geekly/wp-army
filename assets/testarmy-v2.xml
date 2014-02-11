@@ -11,9 +11,8 @@ and open the template in the editor.
     faction="Circle Orboros"
     description="Army I bought last week"
     player="Geekly">
+    <themeforce tier="4">Rock of Orboros</themeforce>
     <army>
-        <themeforce>Rock of Orboros</themeforce>
-        <tier>4</tier>
         <caster name="Baldur" points="6" focusfury="6">
             <battlegroup>
                 <warbeast name="Warpwolf Stalker" pointcost="10"/>
@@ -21,9 +20,9 @@ and open the template in the editor.
             </battlegroup>
         </caster>
         <models>
+            <solo name="Lord of the Feast" pointcost="4"/>
             <unit name="Wold Shrimps" pointcost="5"/>
-            </unit>
-            <unit name="Druids" pointcost="7"/>
+            <unit name="Druids" pointcost="7">
                 <attachment name="Druid Overseer" pointcost="2"/>
             </unit>
         </models>
