@@ -27,7 +27,7 @@
 class Wp_Army_List
 {
 
-	var $army;
+	var $xml;									//raw xml army construction
 	var $faction = "FactionName";
 	var $description = "Description";
 	var $player = "PlayerName";
@@ -36,7 +36,7 @@ class Wp_Army_List
 	var $army_caster_points = 6;
 	var $army_caster_focusfury = 6;
 	var $army_tier = "None";
-	var $models;
+	var $models;								//array of models
 
 
 	
@@ -47,17 +47,19 @@ class Wp_Army_List
 
 	static function create_army_list_from_xml_obj($xml_army)
 	{
-		echo($xml_army);
+		//echo($xml_army);
 		$army_list = new Wp_Army_List();
-		$army_list->army = $xml_army;
+		$army_list->xml = $xml_army;
 		
 		$army_list->faction = (string)$xml_army->faction;
 		$army_list->description = (string)$xml_army->description;
 		$army_list->player = (string)$xml_army->player;
 		$army_list->faction = (string)$xml_army->faction;
+		$army_list->army_themeforce = (string)$xml_army->xml->themeforce;
+		$army_list->army_tier = (string)$xml_army->xml->tier;
 
-		$army_list->models = xml2array($xml_army->army->models);
-		print_r( $xml_army->models );
+		$army_list->models = xml2array($xml_army->models);
+		//print_r( $xml_army->models );
 
 
 		//echo($army_list->models);
@@ -69,27 +71,44 @@ class Wp_Army_List
 
 	function __toString()
 	{
-		return $this->army->asXML();
+		return $this->xml->asXML();
 	}
 
 	function render_army_list()
 	{
-echo <<<ENDLIST
-		<div id="armylist">
-		Rendering army list
-		<h2>{$this->description}</h2>
-		<h3>Faction:  {$this->faction}</h3>
-		<h3>Caster: {$this->army_caster_name}</h3>
-		<ul>
-		<li>{render_models();}
-		</ul>
-		</div>
-ENDLIST;
+
+		echo print_r($this->xml);
+
+echo <<<PRE
+		<link rel="stylesheet" href="/test/assets/army.css" type="text/css">
+		<div id="army_list">
+			Rendering army list
+			<h2 id="title">{$this->description}</h2>
+			<h3>Faction:  {$this->faction}</h3>
+			<h3>Caster: {$this->army_caster_name}</h3>
+			<h3>Themeforce: {$this->xml->army->themeforce}</h3>	
+			<h3>Tier: {$this->xml->army->tier}</h3>
+PRE;
+			$this->render_models();	
+
+		echo '</div>';
 	}
 
 	function render_models()
 	{
-
+		echo '<div id="models">';
+		echo (string)$this->xml->army;
+		foreach ($this->xml->army->models as $model)
+		{
+			$value = (string)$model;
+echo <<<ENDMODELS
+		{$value}
+		{$model->name}		
+ENDMODELS;
+		}
+		echo "</div>";
+		//echo var_dump($this->army);
+		//echo '<pre>'.$this->army->asXML().'</pre>';
 	}
 
 

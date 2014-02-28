@@ -6,31 +6,54 @@ and open the template in the editor.
 -->
 
 
-<armylist
+<armylist 
+    faction="Circle Orboros" 
+    description="Army I built last week" 
+    player="Me Player"
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='army.xsd'>
-    
-        <faction>Circle Orboros</faction>
-        <description>Army I brought last week</description>
-        <player>Geekly</player>
+        <themeforce tier="4">
+            Balls on Fire
+        </themeforce>
         <army>
-            <themeforce>Rock of Orboros</themeforce>
-            <tier>4</tier>
-            <caster>
-                <name>Baldur</name>
-                <points>6</points>
-                <focusfury>6</focusfury>
-            </caster>
+            <battlegroup>
+                <caster point="6">Baldur</caster>
+                <warbeast pointcost="10">Warpwolf Stalker</warbeast>     
+                <warbeast pointcost="9">Feral Warpwolf</warbeast> 
+            </battlegroup>
             <models>
-                <solo>    
-                    <name>Warpwolf Stalker</name>
-                    <pointcost>10</pointcost>
-                </solo>
-                <unit>
-                    <name>Wold Shrimp</name>
-                    <pointcost>5</pointcost>
-                    <minmax>max</minmax>  
-                </unit>
+                <solo pointcost="4">Lord of the Feast</solo>
+                <unit pointcost="5">Wold Shrimp</unit>
+                <unit minmax="max" pointcost="9">
+                    Bloodtrackers<attachment name="Nuala" pointcost="2">
+                        <solo>Ballsman</solo>
+                    </attachment>
+                </unit>                
             </models>
         </army>
+       
+        
 </armylist>
+
+
+<!--
+
+ <army>  
+
+            <battlegroup>
+                <caster point="6">Baldur</caster>
+                <warbeast pointcost="10">Warpwolf Stalker</warbeast>     
+                <warbeast pointcost="9">Feral Warpwolf</warbeast> 
+            </battlegroup>
+            
+            <models>
+                <solo pointcost="4">Lord of the Feast</solo>
+                <unit pointcost="5">Wold Shrimp</unit>
+                <unit minmax="max" pointcost="9">
+                    Bloodtrackers<attachment name="Nuala" pointcost="2">
+                        <solo>Ballsman</solo>
+                    </attachment>
+                </unit>                
+            </models>
+            </army>
+    -->

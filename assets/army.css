@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	color: #414141;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 16px;
+	padding: 0;
+	margin: 10px;
+	width: 90%;
+	height: 100%;
+	border: none;
+	display: relative;
+
+}
+#army_list {
+	border: 2px solid #666;	
+	border-radius: 10px;
+	padding:10px;
+	width:400px;
+	-webkit-box-shadow: 10px 10px 5px -5px rgba(51,51,51,1);
+	-moz-box-shadow: 10px 10px 5px -5px rgba(51,51,51,1);
+	box-shadow: 10px 10px 5px -5px rgba(51,51,51,1);
+}
+
+#army_list .title {
+	color:#363;
+}
+#army_list #battlegroup
+{
+	list-style-type: circle;
+	list-style-position: inside;
+}
+
+#army_list .unit
+{
+
+}
