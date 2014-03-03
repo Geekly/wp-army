@@ -30,13 +30,15 @@
 	else
 	{
 		echo($path . " file not found!");
+		exit("Army file not found");
 	}
 
 	$validate_schema = (dirname(__FILE__) . '/assets/army.xsd');
 	validate_xml($xml->__toString(), $validate_schema);
 
 	$army_list = Wp_Army_List::create_army_list_from_xml_obj($xml);
-	$army_list->render_army_list();
+	//$army_list->render_army_list();
+	//echo $army_list->xml->asXML();
 
 	//echo($army_list);
 ?>

@@ -27,7 +27,8 @@
 class Wp_Army_List
 {
 
-	var $xml;									//raw xml army construction
+	var $xml;
+	var $teststring = null;									//raw xml army construction
 	var $faction = "FactionName";
 	var $description = "Description";
 	var $player = "PlayerName";
@@ -48,9 +49,12 @@ class Wp_Army_List
 	static function create_army_list_from_xml_obj($xml_army)
 	{
 		//echo($xml_army);
+
+		
+
 		$army_list = new Wp_Army_List();
 		$army_list->xml = $xml_army;
-		
+		$army_list->teststring = "This is a test";
 		$army_list->faction = (string)$xml_army->faction;
 		$army_list->description = (string)$xml_army->description;
 		$army_list->player = (string)$xml_army->player;
@@ -77,12 +81,14 @@ class Wp_Army_List
 	function render_army_list()
 	{
 
+		$test = $this->teststring;
 		echo print_r($this->xml);
 
 echo <<<PRE
 		<link rel="stylesheet" href="/test/assets/army.css" type="text/css">
 		<div id="army_list">
 			Rendering army list
+			<h1>{$this->teststring}</h1>
 			<h2 id="title">{$this->description}</h2>
 			<h3>Faction:  {$this->faction}</h3>
 			<h3>Caster: {$this->army_caster_name}</h3>

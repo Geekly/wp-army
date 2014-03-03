@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
     <xs:element name="armylist">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="themeforce" minOccurs="0" maxOccurs="1">
                     <xs:complexType>
-                        <xs:simpleContent>
+                        
                             <xs:attribute name="tier" type="xs:string"/>
-                        </xs:simpleContent>
+                        
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="army" maxOccurs="1">
@@ -29,11 +29,11 @@
         <xs:attribute name="PointCost" type="xs:integer"/>
     </xs:attributeGroup>
 
-    <xs:complexType name="ModelUnit">
+    <xs:complexType name="ModelUnit" mixed="true">
         <xs:attributeGroup ref="ModelUnitAttr"/>
     </xs:complexType>
  
-  <xs:complexType name="UnitType">
+  <xs:complexType name="UnitType" mixed="true">
     <xs:complexContent>
         <xs:extension base="ModelUnit">
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -58,21 +58,21 @@
     </xs:restriction>
 </xs:simpleType>
 
-<xs:complexType name="Warbeast">
+<xs:complexType name="Warbeast" mixed="true">
     <xs:complexContent>
         <xs:extension base="ModelUnit">
         </xs:extension>
     </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="Warjack">
+<xs:complexType name="Warjack" mixed="true">
     <xs:complexContent>
         <xs:extension base="ModelUnit">
         </xs:extension>
     </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="Caster">
+<xs:complexType name="Caster" mixed="true">
     <xs:complexContent>
         <xs:extension base="ModelUnit">
         </xs:extension>
