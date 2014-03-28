@@ -2,18 +2,25 @@
 <link rel="stylesheet" type="text/css" href="assets/css/public.css">
 
 <html>
-<div class="army_list">
+<a href="">test link</a>
+
+<div class="army_list"><a class="army_link" href="somelink">
+
+
 	<div class="caster">
-		Baldur the Stonecleaver
-	</div>
+		Shepherd</div>
+	<div class="themeforce">Rock of Orboros</div>
 	<table class="battlegroup models">
-	<tr><td>Zebra</td><td align=right>5pts</td></tr>
-	<tr><td>Monkey</td><td align=right>10pts</td></tr>
-	<table class="models">
-	<tr><td>Elephant</td><td align=right>5pts</td></tr>
+	<tr><td>Zebra</td><td align=right>5</td></tr>
+	<tr><td>Monkey</td><td align=right>10</td></tr>
 	</table>
 
-</div>
+	<table class="models">
+	<tr><td>Elephant</td><td align=right>5</td></tr>
+	<tr><td>Dog</td><td align=right>8</td></tr>
+	</table>
+
+</a></div>
 </html>
 
 
