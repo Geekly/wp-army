@@ -2,7 +2,7 @@
 /**
  * Plugin Name.
  *
- * @package   Wp-Army_Admin
+ * @package   WP Field Marshal
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -21,7 +21,7 @@
  * @package Wp-Army-Admin
  * @author  Your Name <email@example.com>
  */
-class Wp_Army_Admin {
+class Wp_Fieldmarshal_Admin {
 
 	/**
 	 * Instance of this class.
@@ -66,7 +66,7 @@ class Wp_Army_Admin {
 		 * - Rename "Plugin_Name" to the name of your initial plugin class
 		 *
 		 */
-		$plugin = Wp_Army::get_instance();
+		$plugin = Wp_Fieldmarshal::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.

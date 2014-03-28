@@ -7,7 +7,7 @@
 	    foreach ($xml as $element)
 	    {
 	        $tag = $element->getName();
-	        
+
 	        $e = get_object_vars($element);
 	        if (!empty($e))
 	        {
@@ -33,7 +33,7 @@
 	    echo("Validating against " . $validate_schema);
 	    $xml->setParserProperty(XMLReader::VALIDATE, true);
 	    if ($xml->isValid())
-	    {	
+	    {
 	    	echo( "<p>");
 	    	echo("XML is valid");
 	    	echo("</p>");
@@ -45,4 +45,21 @@
 	    	return false;
 
 	    }
+	}
+
+
+	function parse_armylist( $content )
+	{
+		$parsed_text = "Invalid XML";
+
+	    $xml = new XMLReader();
+	    $xml->xml($content);
+	    $xml->setSchema('http://www.geeklythings.net/army.xsd');
+	    $xml->setParserProperty(XMLReader::VALIDATE, true);
+	    if ($xml->isValid()) {
+
+	    	$parsed_text = "Valid XML Found";
+
+	    }
+	    return $parsed_text;
 	}

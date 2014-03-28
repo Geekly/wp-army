@@ -24,7 +24,7 @@
 
 
 
-class Wp_Army_List
+class Wp_Fieldmarshal_List
 {
 
 	var $army;
@@ -39,7 +39,7 @@ class Wp_Army_List
 	var $models;
 
 
-	
+
 	function __construct()
 	{
 		# code...
@@ -50,7 +50,7 @@ class Wp_Army_List
 		echo($xml_army);
 		$army_list = new Wp_Army_List();
 		$army_list->army = $xml_army;
-		
+
 		$army_list->faction = (string)$xml_army->faction;
 		$army_list->description = (string)$xml_army->description;
 		$army_list->player = (string)$xml_army->player;

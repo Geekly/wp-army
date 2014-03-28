@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The WordPress Plugin Boilerplate.
@@ -5,16 +6,16 @@
  * A foundation off of which to build well-documented WordPress plugins that
  * also follow WordPress Coding Standards and PHP best practices.
  *
- * @package   WP Army List 
+ * @package   WP Field Marshal
  * @author    Keith Hooks <khooks@gmail.com>
  * @license   GPL-2.0+
  * @link      http://geeklythings.net
  * @copyright 2014 Keith Hooks
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Army List
+ * Plugin Name:       WordPress Army List Plugin
  * Plugin URI:        http://geeklythings.net
- * Description:       Add army lists to your WordPress blog using shortcodes
+ * Description:       Add Warmachine army lists to your WordPress blog using shortcodes
  * Version:           0.0.1
  * Author:            Keith Hooks
  * Author URI:        http://geeklythings.net
@@ -22,7 +23,7 @@
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/Geekly/wp-army
+ * GitHub Plugin URI: https://github.com/Geekly/wp-fieldmarshal
  */
 
 // If this file is called directly, abort.
@@ -40,8 +41,8 @@ if ( ! defined( 'WPINC' ) ) {
  * - replace `Wp-Army.php` with the name of the plugin's class file
  *
  */
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-army-list.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-fieldmarshal.php');
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-fieldmarshal-list.php');
 require_once( plugin_dir_path( __FILE__ ) . 'includes/xml-utils.php');
 
 
@@ -52,18 +53,18 @@ require_once( plugin_dir_path( __FILE__ ) . 'includes/xml-utils.php');
  * @TODO:
  *
  * - replace Plugin_Name with the name of the class defined in
- *   `Wp-Army.php`
+ *   `Wp-Fieldmarshal.php`
  */
-register_activation_hook( __FILE__, array( 'Wp_Army', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Wp_Army', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'Wp_Fieldmarshal', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'Wp_Fieldmarshal', 'deactivate' ) );
 
 /*
  * @TODO:
  *
  * - replace Plugin_Name with the name of the class defined in
- *   `class-plugin-name.php`
+ *   `class-wp-fieldmarshal.php`
  */
-add_action( 'plugins_loaded', array( 'Wp_Army', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'Wp_Fieldmarshal', 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
  * Dashboard and Administrative Functionality
@@ -87,7 +88,7 @@ add_action( 'plugins_loaded', array( 'Wp_Army', 'get_instance' ) );
  */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
-	require_once( plugin_dir_path( __FILE__ ) . 'admin/wp-army-admin.php' );
-	add_action( 'plugins_loaded', array( 'Wp_Army_Admin', 'get_instance' ) );
+	require_once( plugin_dir_path( __FILE__ ) . 'admin/wp-fieldmarshal-admin.php' );
+	add_action( 'plugins_loaded', array( 'Wp_Fieldmarshal_Admin', 'get_instance' ) );
 
 }

@@ -2,11 +2,11 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   WP Field Marshal
+ * @author    Keith Hooks <khooks@gmail.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      http://geeklythings.net
+ * @copyright 2014 Keith Hooks
  */
 
 // If uninstall not called from WordPress, then exit

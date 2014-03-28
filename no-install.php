@@ -14,8 +14,8 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT);
 	define("WPINC", true);
-	
-	require_once( 'wp-army.php' );
+
+	require_once( 'wp-fieldmarshal.php' );
 
 	$path = (dirname(__FILE__)) . '/assets/testarmy.xml';
 
@@ -35,7 +35,7 @@
 	$validate_schema = (dirname(__FILE__) . '/assets/army.xsd');
 	validate_xml($xml->__toString(), $validate_schema);
 
-	$army_list = Wp_Army_List::create_army_list_from_xml_obj($xml);
+	$army_list = Wp_Fieldmarshal_List::create_army_list_from_xml_obj($xml);
 	$army_list->render_army_list();
 
 	//echo($army_list);

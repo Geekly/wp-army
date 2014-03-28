@@ -2,7 +2,7 @@
 /**
  * Plugin Name.
  *
- * @package   WP Army List
+ * @package   WP Fieldmarshal
  * @author    Keith Hooks <khooks@gmail.com>
  * @license   GPL-2.0+
  * @link      http://geeklythings.net
@@ -16,46 +16,33 @@
  * If you're interested in introducing administrative or dashboard
  * functionality, then refer to `class-plugin-name-admin.php`
  *
- * @TODO: Rename this class to a proper name for your plugin.
- *
- * @package wp-army
+ * @package Wp-Fieldmarshal
  * @author  Keith Hooks <khooks@gmail.com>
  */
 
-class Wp_Army {
-
+class Wp_Fieldmarshal {
 
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
-	 *
 	 * @since   1.0.0
-	 *
 	 * @var     string
 	 */
-	const VERSION = '0.0.1';
+	const VERSION = '0.0.2';
 
 	/**
-	 * @TODO - Rename "plugin-name" to the name your your plugin
-	 *
-	 * Unique identifier for your plugin.
-	 *
-	 *
 	 * The variable name is used as the text domain when internationalizing strings
 	 * of text. Its value should match the Text Domain file header in the main
 	 * plugin file.
 	 *
 	 * @since    1.0.0
-	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'wp-army';
+	protected $plugin_slug = 'wp-fieldmarshal';
 
 	/**
 	 * Instance of this class.
-	 *
 	 * @since    1.0.0
-	 *
 	 * @var      object
 	 */
 	protected static $instance = null;
@@ -84,8 +71,10 @@ class Wp_Army {
 		//add_action( '@TODO', array( $this, 'action_method_name' ) );
 		//add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
+		//wp_register_script('fieldmarshal_stylesheet');
+
 		// the shortcode that manages display of the army list
-		add_shortcode( 'armylist', 'armylist_func' );  
+		add_shortcode( 'army', 'armylist_func' );
 
 	}
 
@@ -97,9 +86,7 @@ class Wp_Army {
 
 	/**
 	 * Return the plugin slug.
-	 *
 	 * @since    1.0.0
-	 *
 	 * @return    Plugin slug variable.
 	 */
 	public function get_plugin_slug() {
@@ -108,9 +95,7 @@ class Wp_Army {
 
 	/**
 	 * Return an instance of this class.
-	 *
 	 * @since     1.0.0
-	 *
 	 * @return    object    A single instance of this class.
 	 */
 	public static function get_instance() {
@@ -318,25 +303,5 @@ class Wp_Army {
 	}
 
 
-	
 
 }
-
-
-
-
-
-/**
-
-	function parse_armylist( $content )
-	{
-	    $xml = new XMLReader();
-	    $xml->xml($content);
-	    $xml->setSchema('http://www.geeklythings.net/army.xsd');
-	    $xml->setParserProperty(XMLReader::VALIDATE, true);
-	    if ($xml->isValid()) {
-	    
-	        
-	        
-	    }
-	}**/

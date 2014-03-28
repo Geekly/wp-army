@@ -1,0 +1,38 @@
+{
+    "armylist": {
+        "description": "Army I bought Last week",
+        "faction": "Circle Orboros",
+        "player": "Geekly",
+        "army": {
+            "themeforce": "Rock of Orboros",
+            "caster": {
+                "name": "Baldur the Stonecleaver",
+                "focusfury": "6",
+                "battlegroup": {
+                    "models": {
+                        "warbeast": {
+                            "name": "Warpwolf Stalker",
+                            "points": "10"
+                        },
+                        "warbeast": {
+                            "name": "Ghetorix",
+                            "points": "11"
+                        }
+                    }
+                },
+                "army": {
+                    "models": {
+                        "solo": {
+                            "name": "Lord of the Feast",
+                            "points": "4"
+                        },
+                        "unit": {
+                            "name": "Wold Shrimp",
+                            "points": "5"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
