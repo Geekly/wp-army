@@ -16,7 +16,7 @@
  * Plugin Name:       WordPress Army List Plugin
  * Plugin URI:        http://geeklythings.net
  * Description:       Add Warmachine army lists to your WordPress blog using shortcodes
- * Version:           0.0.1
+ * Version:           0.2.0
  * Author:            Keith Hooks
  * Author URI:        http://geeklythings.net
  * Text Domain:       plugin-name-locale
@@ -24,6 +24,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
  * GitHub Plugin URI: https://github.com/Geekly/wp-fieldmarshal
+ * GitHub Branch:     master
  */
 
 // If this file is called directly, abort.
