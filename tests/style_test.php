@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="assets/css/public.css">
+<link rel="stylesheet" type="text/css" href="../public/css/public.css">
 
 <html>
 <a href="">test link</a>

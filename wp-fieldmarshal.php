@@ -10,7 +10,7 @@
  * @author    Keith Hooks <khooks@gmail.com>
  * @license   GPL-2.0+
  * @link      http://geeklythings.net
- * @copyright 2014 Keith Hooks
+ * @copyright 2015 Keith Hooks
  *
  * @wordpress-plugin
  * Plugin Name:       WordPress Army List Plugin
